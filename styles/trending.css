@@ -1,0 +1,307 @@
+:root {
+  --primary-h: 248;
+  --primary-s: 57%;
+  --primary-l: 60%;
+}
+
+.trending-top {
+  --margin-bottom: 74px;
+  margin-bottom: var(--margin-bottom);
+  position: relative;
+}
+.trending-heading {
+  --mb: 39px;
+  font-size: 24px;
+  line-height: 108.333%;
+}
+.trending-list {
+  display: grid;
+  grid-auto-columns: 460px;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  gap: 30px;
+}
+.trending-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.trending-list > * {
+  scroll-snap-align: start;
+}
+.trending-item {
+  width: 100%;
+  height: 293px;
+  position: relative;
+}
+.trending-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+.trending-info {
+  position: absolute;
+  left: 32px;
+  bottom: 40px;
+  color: #fff;
+}
+.trending-info button {
+  background-color: #fff;
+  color: #1c1e22;
+  --pd: 8px 12px;
+  --gap: 8px;
+  --fw: 500;
+  line-height: 146.667%;
+  box-shadow: 0px 16px 24px 0px rgba(108, 93, 211, 0.1);
+}
+.trending-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 131.818%;
+}
+.trending-podcast {
+  display: block;
+  font-size: 14px;
+  line-height: 142.857%;
+  margin-block: 9px 7px;
+}
+.trending-author {
+  font-size: 14px;
+  line-height: 142.857%;
+  margin-bottom: 22px;
+}
+.trending-classic-dot {
+  position: absolute;
+  left: 50%;
+  margin-top: 25px;
+}
+.trending-content-top {
+  --margin-bottom: 41px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--margin-bottom);
+}
+.trending-content-top button {
+  --pd: 8px 16px;
+  --fw: 500;
+  background-color: #eff2f6;
+  color: #1c1e22;
+  line-height: 146.667%;
+  transition: all 0.2s linear;
+}
+.trending-content-top button:hover {
+  background-color: #6e5fd3;
+  color: #fcfcfc;
+}
+.trending-content-main {
+  padding-right: 20px;
+}
+.trending-episdes {
+  --margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--margin-bottom);
+}
+.trending-episdes-wrap span {
+  color: #a5a6b1;
+  font-size: 14px;
+  line-height: 142.857%;
+}
+.trending-episdes-heading {
+  color: #1c1e22;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 144.444%;
+  margin-bottom: 8px;
+}
+.trending-episdes-filter {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 16px 23px;
+  border-radius: 16px;
+  background-color: #f7f7f7;
+}
+.trending-episdes-filter span {
+  color: #a5a6b1;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.trending-episdes-content {
+  container-type: inline-size;
+  container-name: list-container;
+}
+.trending-episdes-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+.trending-episdes-item {
+  --padding: 14px 15px 15px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #fff;
+  padding: var(--padding);
+  border-radius: 20px;
+  box-shadow: -10px 24px 35px 0px rgba(227, 230, 236, 0.25), -1px -3px 14px 0px rgba(227, 230, 236, 0.2);
+  position: relative;
+}
+.trending-episdes-icon {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+}
+.trending-episdes-image {
+  flex: 0 0 204px;
+  height: 159px;
+  aspect-ratio: 1;
+}
+.trending-episdes-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.trending-episdes-info {
+  flex: 1;
+  color: #a5a6b1;
+}
+.trending-episdes-title {
+  color: #11142c;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+.trending-episdes-podcast {
+  margin-block: 4px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.trending-episdes-describe {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.trending-episdes-describe-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 146.154%;
+}
+.trending-episdes-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block: 20px 16px;
+}
+.trending-episdes-author-avatar {
+  flex: 0 0 36px;
+  aspect-ratio: 1;
+}
+.trending-episdes-author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100rem;
+}
+.trending-episdes-author-name {
+  color: #232334;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.trending-episdes-author-username {
+  font-size: 13px;
+  line-height: 146.154%;
+}
+.trending-episdes-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+}
+.trending-episdes-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.trending-episdes-button {
+  display: inline-block;
+  position: relative;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 55px;
+}
+.trending-episdes-button button {
+  --pd: 8px 16px;
+  --fw: 500;
+  background-color: hsl(208, 26%, 95%);
+  color: hsl(220, 10%, 12%);
+  line-height: 146.667%;
+}
+@media screen and (max-width: 767.98px) {
+  .trending-top {
+    --margin-bottom: 30px;
+  }
+  .trending-heading {
+    --mb: 30px;
+  }
+  .trending-classic-dot {
+    display: none;
+  }
+  .trending-list {
+    grid-auto-columns: 360px;
+  }
+  .trending-info {
+    left: 30px;
+    bottom: 30px;
+  }
+  .trending-content-top {
+    --margin-bottom: 30px;
+  }
+  .trending-content-main {
+    padding-right: 0;
+  }
+  .trending-episdes-filter {
+    display: none;
+  }
+}
+@container list-container (max-width: 1000px) {
+  .trending-episdes {
+    --margin-bottom: 14px;
+  }
+  .trending-episdes-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .trending-episdes-item {
+    flex-direction: column;
+    --padding: 14px 20px;
+  }
+  .trending-episdes-image {
+    width: 100%;
+  }
+  .trending-episdes-icon {
+    top: 57%;
+    right: 20px;
+  }
+  .trending-episdes-info {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=trending.css.map */

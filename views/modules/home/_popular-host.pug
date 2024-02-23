@@ -1,0 +1,21 @@
+-
+  var user_list = [
+    {name: "Thomas", color: "hsl(14, 100%, 82%)", image: "./images/avatars/Thomas.png"},
+    {name: "Darrell", color: "hsl(39, 100%, 75%)", image: "./images/avatars/Darrell.png"},
+    {name: "Arlene", color: "hsl(248, 57%, 80%)", image: "./images/avatars/Arlene.png"},
+    {name: "Kristin", color: "hsl(341, 100%, 85%)", image: "./images/avatars/Kristin.png"},
+    {name: "Courtney", color: "hsl(39, 100%, 84%)", image: "./images/avatars/Courtney.png"},
+    {name: "Cody", color: "hsl(341, 100%, 89%)", image: "./images/avatars/Cody.png"},
+    {name: "Peter", color: "hsl(248, 57%, 80%)", image: "./images/avatars/Peter.png"}
+  ];
+
+.host
+  h2.heading.host-heading Popular Hosts
+  ul.host-list
+    each user in user_list
+      li.host-item
+        .host-avatar(style = `--color: ${user.color}`)
+          img(src= user.image, alt= user.name)
+        span.host-name= user.name
+
+

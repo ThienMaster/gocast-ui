@@ -1,0 +1,48 @@
+@use "../../abstracts" as abst;
+
+.listening {
+  &-list {
+    @include abst.flexbox(((flex-direction: column, gap: 18px)));
+  }
+
+  &-item {
+    @include abst.flexbox(((align-items: center, gap: 11px)));
+  }
+
+  &-image {
+    flex: 0 0 109px;
+    height: 67px;
+    width: 100%;
+
+    img {
+      @include abst.imageCover();
+      border-radius: 4px;
+      object-position: bottom;
+    }
+  }
+
+  &-content {
+    flex: 1;
+  }
+
+  &-singer,
+  &-meta {
+    font-size: 13px;
+    line-height: 146.154%;
+    color: abst.$gray-2;
+  }
+
+  &-song {
+    font-weight: 500;
+    line-height: 146.667%;
+    margin-block: 3px;
+  }
+
+  &-meta {
+    @include abst.flexbox(((align-items: center, gap: 16px)));
+
+    &-item {
+      @include abst.flexbox(((align-items: center, gap: 6px)));
+    }
+  }
+}

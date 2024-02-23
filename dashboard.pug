@@ -1,0 +1,125 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/dashboard.css")
+
+block title
+  title GoCast UI - Dashboard
+
+block main
+  -
+    var dashboard_card_list = [
+      {icon: 'icon-subscribers', title: "Subscribers", number: "36k", icon_data: 'icon-trend-up', span: "+1,243"},
+      {icon: 'icon-play', title: "Total Plays", number: "25k", icon_data: 'icon-trend-up', span: "+1,243"},
+      {icon: 'icon-listen', title: "Avarage Lisaten Time", number: "15.3m", icon_data: 'icon-trend-down', span: "10.0m"}
+    ];
+
+    var table_list = [
+      {image: "./images/dashboard/trending/1.png", title: "How to Make Money - (Ep:19)", name: "Guest Farhan", listen: "89 min (41.8%)", plays: "32k"},
+      {image: "./images/dashboard/trending/2.png", title: "Improve Your English Listening Skill", name: "Guest Thomas", listen: "34 min (65.2%)", plays: "45k"},
+      {image: "./images/dashboard/trending/3.png", title: "Learn English Podcast Ep.1:", name: "Dr. Andrew Huberman", listen: "23 min (45.9%)", plays: "25k"},
+      {image: "./images/dashboard/trending/4.png", title: "The first secret of great design | Tony Fadell", name: "Tony Fadell", listen: "34 min (31.43)", plays: "32k"},
+      {image: "./images/dashboard/trending/5.png", title: "Change Your Brain: Neuroscientist", name: "Dr. Andrew Huberman", listen: "20 min (31.8%)", plays: "12k"}
+    ];
+
+    var dashboard_activity_list = [
+      {date: "Today", icon: 'icon-trend-up', percent: "100%"},
+      {date: "Thursday", icon: 'icon-trend-up', percent: "100%"},
+      {date: "Friday", icon: 'icon-trend-down', percent: "10%"},
+      {date: "Friday", icon: 'icon-trend-up', percent: "98%"}
+    ];
+
+    var dashboard_subscribers_list = [
+      {image: "./images/dashboard/subscribers/1.png", name: "Cody Fisher", username: "@codyfisher"},
+      {image: "./images/dashboard/subscribers/2.png", name: "Devon Lane", username: "@devonlane"},
+      {image: "./images/dashboard/subscribers/3.png", name: "Eleanor Pena", username: "@eleanor Pena"},
+      {image: "./images/dashboard/subscribers/4.png", name: "Jerome Bell", username: "@jeromebell"}
+    ];
+
+  h2.heading.dashboard-heading Hi, Thomas
+  p.dashboard-desc Here’s what’s happening with your podcast today
+  .dashboard-wrapper
+    .dashboard-left
+      .dashboard-chart
+        .dashboard-chart-top
+          .dashboard-chart-audience
+            p.dashboard-audience Audience
+            p.dashboard-number 301,097
+            .dashboard-trend
+              .dashboard-trend-item
+                .dashboard-trend-icon
+                  include ./views/icons/_icon-trend-up
+                span.dashboard-trend-data +1,253 (+15.32%)
+              .dashboard-trend-item
+                span.dashboard-trend-year for 1 years
+          .dashboard-filter
+            span Last 1 Weeks
+            include ./views/icons/_icon-cheveron.pug
+        .dashboard-chart-image
+          //- img(src="./images/Chart.png", alt="Chart")
+          img(src="./images/chart_1.png", alt="Chart")
+          //- .dashboard-chart-tooltip
+          //-   img(src="./images/Tooltip.png", alt="Tooltip")
+        .dashboard-chart-bottom
+          .dashboard-card
+            each dashboard_card_item in dashboard_card_list
+              +dashboardCardItem(dashboard_card_item.icon, dashboard_card_item.title, dashboard_card_item.number, dashboard_card_item.icon_data, dashboard_card_item.span)
+      .dashboard-trending
+        .dashboard-trending-top
+          .dashboard-trending-left
+            h3.heading.dashboard-trending-heading Trending Episodes
+            p.dashboard-trending-desc Here’s your top 5 episodes in the last 7 days
+          .dashboard-filter
+            span Last 1 Weeks
+            include ./views/icons/_icon-cheveron.pug
+        .dashboard-trending-table
+          table
+            thead
+              tr
+                th(style= "width: 57%") Episode
+                th Avg. Listen Time
+                th Plays
+            tbody
+              each table_item in table_list
+                +tableItem(table_item.image, table_item.title, table_item.name, table_item.listen, table_item.plays)
+    .dashboard-right
+      .dashboard-profile
+        .dashboard-profile-top
+          .dashboard-profile-image
+            img(src="./images/UIHUT.png", alt="")
+          .dashboard-profile-info
+            .dashboard-profile-author
+              p.dashboard-profile-name Thomas Fletcher
+              p.dashboard-profile-job Product Design
+            .dashboard-profile-icon
+              button
+                include ./views/icons/_icon-edit
+        p.dashboard-profile-desc Hi, I’m Thomas. UI/UX Designer. I’ve always wanted my work to be part of a bigger self, to be bound with innovation and...
+        .dashboard-profile-date
+          button
+            include ./views/icons/_icon-calendar
+          .dashboard-profile-date-wrap
+            span Joined
+            span Jun 4, 2021
+        .dashboard-profile-button
+          button.button
+            include ./views/icons/_icon-linear-eye
+            span Public view
+      .dashboard-activity
+        h3.heading.dashboard-activity-heading Your activity statistics
+        each dashboard_activity_item in dashboard_activity_list
+          +dashboardActivityItem(dashboard_activity_item.date, dashboard_activity_item.icon, dashboard_activity_item.percent)
+      .dashboard-subscribers
+        +widgetHeader("New Subscribers", "View All")
+        .dashboard-subscribers-list
+          each dashboard_subscribers_item in dashboard_subscribers_list
+            +dashboardSubscribersItem(dashboard_subscribers_item.image, dashboard_subscribers_item.name, dashboard_subscribers_item.username)
+
+
+
+
+
+
+
+
+
+

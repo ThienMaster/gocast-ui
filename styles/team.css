@@ -1,0 +1,104 @@
+:root {
+  --primary-h: 248;
+  --primary-s: 57%;
+  --primary-l: 60%;
+}
+
+.team {
+  container-type: inline-size;
+  container-name: team;
+}
+.team-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 33px;
+}
+.team-top .button {
+  --fw: 500;
+  --pd: 9px 16px;
+  background-color: #f0effb;
+}
+.team-top .button-mobile {
+  --pd: 8px;
+  background-color: #f0effb;
+  display: none;
+}
+.team-top span {
+  color: #6e5fd3;
+  font-size: 14px;
+  line-height: 142.857%;
+}
+@container team (max-width: 920px) {
+  .team-top .button {
+    display: none;
+  }
+  .team-top .button-mobile {
+    display: block;
+  }
+}
+.team-heading {
+  font-size: 22px;
+  line-height: 109.091%;
+}
+@container team (max-width: 719.98px) {
+  .team-table {
+    overflow-x: auto;
+  }
+  .team-table table th:first-child,
+  .team-table table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+  }
+  .team-table table th:nth-child(2),
+  .team-table table td:nth-child(2) {
+    position: sticky;
+    left: 40px;
+    background-color: #fff;
+  }
+}
+.team table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.team table th,
+.team table td {
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.team table thead .checkbox {
+  background-color: hsl(248, 57%, 60%);
+  border-color: hsl(248, 57%, 60%);
+  color: #fff;
+}
+.team table tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+.team table th {
+  color: #a5a6b1;
+  padding-bottom: 25px;
+}
+.team table td {
+  color: #5f6164;
+  padding: 34px 20px 30px 0;
+}
+.team-email {
+  color: #1c1e22;
+  font-size: 16px;
+  line-height: 150%;
+}
+.team-invite {
+  height: 26px;
+  padding-inline: 16px;
+  border-radius: 4px;
+  background-color: #fff1ed;
+  color: #ff754c;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=team.css.map */

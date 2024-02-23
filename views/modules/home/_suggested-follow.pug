@@ -1,0 +1,13 @@
+-
+  var follow_list = [
+    {image: "./images/suggested/suggested-1.png", alt: "Yahia Amin", name: "Yahia Amin", username: "@yahiamdamin"},
+    {image: "./images/suggested/suggested-2.png", alt: "Mufti Menk", name: "Mufti Menk", username: "@muftimenk"},
+    {image: "./images/suggested/suggested-3.png", alt: "Omar Suleiman", name: "Omar Suleiman", username: "@omarsuleiman"},
+    {image: "./images/suggested/suggested-2.png", alt: "Nouman Ali Khan", name: "Nouman Ali Khan", username: "@noumanalikhan"}
+  ];
+
+.widget
+  +widgetHeader("Suggested Follow", "View all")
+  .follow-list
+    each follow_item in follow_list
+      +followItem(follow_item.image, follow_item.alt, follow_item.name, follow_item.username)

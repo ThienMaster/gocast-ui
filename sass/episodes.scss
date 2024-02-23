@@ -1,0 +1,150 @@
+@use "./abstracts" as abst;
+
+.episodes {
+  container-type: inline-size;
+  container-name: episodes;
+  &-top {
+    @include abst.flexbox(
+      ((align-items: center, justify-content: space-between))
+    );
+    margin-bottom: 40px;
+
+    .button {
+      --gap: 6px;
+      --fw: 500;
+      --pd: 8px 16px;
+      background-color: #f0effb;
+    }
+
+    .button-mobile {
+      --pd: 6px;
+      background-color: #f0effb;
+      display: none;
+    }
+
+    span {
+      color: abst.$primary-color;
+      font-size: 14px;
+      line-height: 142.857%;
+    }
+
+    @container episodes (max-width: 920px) {
+      .button {
+        display: none;
+      }
+
+      .button-mobile {
+        display: block;
+      }
+    }
+  }
+
+  &-heading {
+    font-size: 22px;
+    line-height: 109.091%;
+  }
+
+  &-table {
+    overflow-x: auto;
+    border: 1px solid #fff;
+
+    @container episodes (max-width: 920px) {
+      table {
+        th:first-child,
+        td:first-child {
+          position: sticky;
+          left: 0;
+          background-color: #fff;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+          position: sticky;
+          left: 100px;
+          background-color: #fff;
+        }
+
+        th:not(:first-child),
+        td {
+          min-width: 100px;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    thead {
+      .checkbox {
+        background-color: hsl(248, 57%, 60%);
+        border-color: hsl(248, 57%, 60%);
+        color: #fff;
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid abst.$natural-4;
+    }
+
+    th {
+      color: abst.$gray-2;
+      font-size: 14px;
+      @include abst.fontWeight("medium");
+      line-height: 142.857%;
+      padding-bottom: 27px;
+    }
+
+    td {
+      color: abst.$text-black-1;
+      @include abst.fontWeight("medium");
+      line-height: 146.667%;
+      padding: 29px 20px 27px 0;
+    }
+  }
+
+  &-image {
+    @include abst.size(72px);
+
+    img {
+      @include abst.imageCover();
+      @include abst.rounded("rounded-S");
+    }
+  }
+
+  &-desc {
+    color: abst.$gray-2;
+    @include abst.fontWeight("semibold");
+    margin-top: 8px;
+  }
+
+  &-status {
+    height: 34px;
+    background-color: #f0effb;
+    border-radius: 6px;
+    padding-inline: 10px;
+    color: #7b6dd7;
+    @include abst.flexbox(((align-items: center, justify-content: center)));
+    display: inline-flex;
+  }
+
+  &-action {
+    @include abst.flexbox(((align-items: center, gap: 7px)));
+
+    &-item {
+      background-color: abst.$natural-1;
+      border-radius: 6px;
+      padding: 8px;
+      @include abst.flexbox(((align-items: center, justify-content: center)));
+      cursor: pointer;
+    }
+  }
+}

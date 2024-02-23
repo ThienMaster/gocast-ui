@@ -1,0 +1,43 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/team.css")
+
+block title
+  title GoCast UI - Team
+
+block main
+  -
+    var table_team = [
+      {flb: "checkbox1", iip: "checkbox1", email: "uihutofficial@gmail.com"},
+      {flb: "checkbox2", iip: "checkbox2", email: "alma.lawson@example.com"},
+      {flb: "checkbox3", iip: "checkbox3", email: "georgia.young@example.com"},
+      {flb: "checkbox4", iip: "checkbox4", email: "georgia.young@example.com"},
+      {flb: "checkbox5", iip: "checkbox5", email: "michelle.rivera@example.com"},
+      {flb: "checkbox6", iip: "checkbox6", email: "michelle.rivera@example.com"},
+      {flb: "checkbox7", iip: "checkbox7", email: "debra.holt@example.com"}
+    ];
+
+  .team
+    .team-top
+      h2.heading.team-heading Team
+      +button(false, "Invite Member")
+      button.button.button-mobile
+        include ./views/icons/_icon-add-user-1
+    .team-table
+      table
+        thead
+          tr
+            th
+              label(for="checkbox").checkbox-label
+                input(type="checkbox" id="checkbox").checkbox-input
+                .checkbox
+                  include ./views/icons/_icon-check
+            th Email
+            th Role
+            th Date
+            th &nbsp;
+            th &nbsp;
+        tbody
+          each table_team_item in table_team
+            +tableTeamItem(table_team_item.flb, table_team_item.iip, table_team_item.email)
+

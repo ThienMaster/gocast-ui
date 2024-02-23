@@ -1,0 +1,30 @@
+@use "../abstracts" as abst;
+
+.navigation {
+  @include abst.flexbox(
+    ((align-items: center, justify-content: space-between))
+  );
+  padding: 14px 24px;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-top: 1px solid abst.$natural-4;
+
+  &-item {
+    @include abst.size(44px);
+    @include abst.flexbox(((align-items: center, justify-content: center)));
+    cursor: pointer;
+  }
+
+  button {
+    @include abst.rounded("rounded-full");
+    background-color: abst.$primary-color;
+  }
+
+  @include abst.minWidth(1100px) {
+    display: none;
+  }
+}

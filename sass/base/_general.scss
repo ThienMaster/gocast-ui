@@ -1,0 +1,58 @@
+@use "../abstracts/" as abst;
+
+.heading {
+  --mb: 0;
+  --fw: 600;
+  color: abst.$text-black-1;
+  font-weight: var(--fw);
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: var(--mb);
+}
+
+.widget {
+  margin-bottom: 40px;
+  &-header {
+    @include abst.flexbox(
+      ((align-items: center, justify-content: space-between))
+    );
+    margin-bottom: 20px;
+  }
+
+  &-heading {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &-view-all {
+    font-size: 13px;
+    line-height: 138.462%;
+    color: abst.$gray-2;
+    font-weight: 500;
+    position: relative;
+  }
+}
+
+.checkbox {
+  @include abst.size(20px);
+  border: 1px solid abst.$natural-4;
+  border-radius: 3px;
+  color: abst.$natural-4;
+  @include abst.flexbox(((align-items: center, justify-content: center)));
+
+  &-label {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  &-input {
+    display: none;
+  }
+
+  &-input:checked + & {
+    background-color: abst.$primary-color;
+    border-color: abst.$primary-color;
+    color: #fff;
+  }
+}

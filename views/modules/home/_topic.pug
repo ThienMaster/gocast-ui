@@ -1,0 +1,13 @@
+-
+  var topic_list = [
+    {image: "./images/topics/topics-1.png", alt: "Topic-1"},
+    {image: "./images/topics/topics-2.png", alt: "Topic-2"},
+    {image: "./images/topics/topics-3.png", alt: "Topic-3"},
+    {image: "./images/topics/topics-4.png", alt: "Topic-4"}
+  ];
+
+.widget
+  +widgetHeader("Topic", "View all")
+  .topic-list
+    each topic in topic_list
+      +topicItem(topic.image, topic.alt)

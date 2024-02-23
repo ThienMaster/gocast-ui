@@ -1,0 +1,34 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/playlist.css")
+
+block title
+  title GoCast UI - Playlist
+
+block main
+  -
+    var playlist_list = [
+      {image: "./images/playlist/playlist-1.png", heading: "UIHUT Podcast", desc: "UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs."},
+      {image: "./images/playlist/playlist-2.png", heading: "Developer Podcast", desc: "The Best Tech Podcasts for Software Developers in 2021."},
+      {image: "./images/playlist/playlist-3.png", heading: "Learning Podcast", desc: "The 30 best educational podcasts for learning what you missed in school."},
+      {image: "./images/playlist/playlist-4.png", heading: "Health & Fitness", desc: "UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs."},
+      {image: "./images/playlist/playlist-5.png", heading: "Sports", desc: "Also, it helps us to learn many new things in life. It assists us in building confidence, develops."},
+      {image: "./images/playlist/playlist-6.png", heading: "Motivational Speech", desc: "A motivational speech is a public speech intended to inspire an audience to make a change in their lives."},
+      {image: "./images/playlist/playlist-7.png", heading: "Business Development", desc: "UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs."},
+      {image: "./images/playlist/playlist-8.png", heading: "UIHUT Podcsat", desc: "UIHUT is a design and coding resources platform for designers, developers, and entrepreneurs."}
+    ];
+
+  .playlist
+    .playlist-top
+      .playlist-left
+        h2.heading.playlist-heading Playlist
+        p Hear your own playlists and the playlists you’ve liked
+      .playlist-filter
+        span All
+        include ./views/icons/_icon-cheveron.pug
+    .playlist-main
+      .playlist-list
+        each playlist_item in playlist_list
+          +playlistItem(playlist_item.image, playlist_item.heading, playlist_item.desc)
+
+

@@ -1,0 +1,90 @@
+@use "../../abstracts" as abst;
+
+.host {
+  padding-bottom: 28px;
+
+  &-heading {
+    --mb: 20px;
+  }
+
+  &-list {
+    --gap: 0;
+    @include abst.flexbox(
+      (
+        (
+          align-items: flex-start,
+          gap: var(--gap),
+          justify-content: space-between
+        )
+      )
+    );
+  }
+
+  &-item {
+    --gap: 7px;
+    --avatar-size: 64px;
+    @include abst.flexbox(
+      ((align-items: center, gap: var(--gap), flex-direction: column))
+    );
+  }
+
+  &-avatar {
+    @include abst.size(var(--avatar-size));
+    @include abst.rounded("rounded-full");
+    @include abst.flexbox(((align-items: flex-end, justify-content: center)));
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px hsl(341, 100%, 84%);
+
+    img {
+      position: relative;
+      z-index: 2;
+      @include abst.imageCover;
+    }
+  }
+
+  &-name {
+    color: abst.$gray-1;
+    font-size: 14px;
+  }
+
+  @include abst.maxWidth(767.98px) {
+    padding-bottom: 0;
+
+    &-heading {
+      --mb: 12px;
+    }
+
+    &-list {
+      --gap: 12px;
+    }
+
+    &-item {
+      --gap: 6px;
+      --avatar-size: 46px;
+    }
+  }
+
+  @container main-container (max-width: 420px) {
+    &-list {
+      display: grid;
+      grid-auto-columns: 55px;
+      grid-auto-flow: column;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      padding-top: 5px;
+
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+      }
+
+      & > * {
+        scroll-snap-align: start;
+      }
+    }
+  }
+}

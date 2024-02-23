@@ -1,0 +1,42 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/subscriptions.css")
+
+block title
+  title GoCast UI - Subscriptions
+
+block main
+  -
+    var subscriptions_list = [
+      {image: "./images/subscriptions/subscriptions-1.png", name: "Ralph Edwards"},
+      {image: "./images/subscriptions/subscriptions-2.png", name: "Robert Fox"},
+      {image: "./images/subscriptions/subscriptions-3.png", name: "Cody Fisher"},
+      {image: "./images/subscriptions/subscriptions-4.png", name: "Devon Lane"},
+      {image: "./images/subscriptions/subscriptions-5.png", name: "Jane Cooper"}
+    ];
+
+    var subscriptions_episodes_list = [
+      {image: "./images/subscriptions-episodes/subscriptions-episodes-1.png"},
+      {image: "./images/subscriptions-episodes/subscriptions-episodes-2.png"},
+      {image: "./images/subscriptions-episodes/subscriptions-episodes-3.png"},
+      {image: "./images/subscriptions-episodes/subscriptions-episodes-4.png"}
+    ];
+
+  .subscriptions
+    .subscriptions-top
+      h2.heading.subscriptions-heading Your Subscriptions
+      span Hear what the people you follow have posted:
+      .subscriptions-list
+        each subscriptions_item in subscriptions_list
+          +subscriptionsItem(subscriptions_item.image, subscriptions_item.name)
+    .subscriptions-main
+      h3.heading.subscriptions-heading Latest Episodes
+      .subscriptions-episodes
+        each subscriptions_episodes_item in subscriptions_episodes_list
+          +subscriptions_episodesItem(subscriptions_episodes_item.image)
+
+
+
+
+
+

@@ -1,0 +1,342 @@
+@use "./abstracts" as abst;
+
+.trending {
+  &-top {
+    --margin-bottom: 74px;
+    margin-bottom: var(--margin-bottom);
+    position: relative;
+  }
+
+  &-heading {
+    --mb: 39px;
+    font-size: 24px;
+    line-height: 108.333%;
+  }
+
+  &-list {
+    display: grid;
+    grid-auto-columns: 460px;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    gap: 30px;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+    }
+
+    & > * {
+      scroll-snap-align: start;
+    }
+  }
+
+  &-item {
+    @include abst.size(100%, 293px);
+    position: relative;
+
+    img {
+      @include abst.imageCover;
+      border-radius: 24px;
+    }
+  }
+
+  &-info {
+    position: absolute;
+    left: 32px;
+    bottom: 40px;
+    color: abst.$text-white;
+
+    button {
+      background-color: #fff;
+      color: abst.$text-black-1;
+      --pd: 8px 12px;
+      --gap: 8px;
+      --fw: 500;
+      line-height: 146.667%;
+      box-shadow: 0px 16px 24px 0px rgba(108, 93, 211, 0.1);
+    }
+  }
+
+  &-title {
+    font-size: 22px;
+    @include abst.fontWeight("semibold");
+    line-height: 131.818%;
+  }
+
+  &-podcast {
+    display: block;
+    font-size: 14px;
+    line-height: 142.857%;
+    margin-block: 9px 7px;
+  }
+
+  &-author {
+    font-size: 14px;
+    line-height: 142.857%;
+    margin-bottom: 22px;
+  }
+
+  &-classic-dot {
+    position: absolute;
+    left: 50%;
+    margin-top: 25px;
+  }
+
+  &-content {
+    &-top {
+      --margin-bottom: 41px;
+      @include abst.flexbox(((align-items: center, gap: 10px)));
+      margin-bottom: var(--margin-bottom);
+
+      button {
+        --pd: 8px 16px;
+        --fw: 500;
+        background-color: abst.$gray-natural-2;
+        color: abst.$text-black-1;
+        line-height: 146.667%;
+        transition: all 0.2s linear;
+
+        &:hover {
+          background-color: abst.$primary-color;
+          color: abst.$neutral-01;
+        }
+      }
+    }
+
+    &-main {
+      padding-right: 20px;
+    }
+  }
+
+  &-episdes {
+    --margin-bottom: 30px;
+    @include abst.flexbox(
+      ((align-items: center, justify-content: space-between))
+    );
+    margin-bottom: var(--margin-bottom);
+
+    &-wrap span {
+      color: abst.$gray-2;
+      font-size: 14px;
+      line-height: 142.857%;
+    }
+
+    &-heading {
+      color: abst.$text-black-1;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 144.444%;
+      margin-bottom: 8px;
+    }
+
+    &-filter {
+      @include abst.flexbox(((align-items: center, gap: 30px)));
+      padding: 16px 23px;
+      border-radius: 16px;
+      background-color: abst.$natural-1;
+
+      span {
+        color: abst.$gray-2;
+        @include abst.fontWeight("medium");
+        line-height: 146.667%;
+      }
+    }
+
+    &-content {
+      container-type: inline-size;
+      container-name: list-container;
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+    }
+
+    &-item {
+      --padding: 14px 15px 15px 20px;
+      @include abst.flexbox(((align-items: flex-start, gap: 20px)));
+      background-color: #fff;
+      padding: var(--padding);
+      border-radius: 20px;
+      box-shadow: -10px 24px 35px 0px rgba(227, 230, 236, 0.25),
+        -1px -3px 14px 0px rgba(227, 230, 236, 0.2);
+      position: relative;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 14px;
+      right: 12px;
+    }
+
+    &-image {
+      flex: 0 0 204px;
+      height: 159px;
+      aspect-ratio: 1;
+
+      img {
+        @include abst.imageCover();
+        @include abst.rounded("rounded-L");
+      }
+    }
+
+    &-info {
+      flex: 1;
+      color: abst.$gray-2;
+    }
+
+    &-title {
+      color: abst.$text-active;
+      font-size: 16px;
+      @include abst.fontWeight("medium");
+      line-height: 150%;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+    }
+
+    &-podcast {
+      margin-block: 4px 8px;
+      font-size: 14px;
+      @include abst.fontWeight("medium");
+      line-height: 142.857%;
+    }
+
+    &-describe {
+      @include abst.flexbox(((align-items: center, gap: 16px)));
+
+      &-item {
+        @include abst.flexbox(((align-items: center, gap: 6px)));
+        font-size: 13px;
+        line-height: 146.154%;
+      }
+    }
+
+    &-author {
+      @include abst.flexbox(((align-items: center, gap: 12px)));
+      margin-block: 20px 16px;
+
+      &-avatar {
+        flex: 0 0 36px;
+        aspect-ratio: 1;
+
+        img {
+          @include abst.imageCover();
+          @include abst.rounded("rounded-full");
+        }
+      }
+
+      &-name {
+        color: abst.$text-primary-black;
+        font-size: 14px;
+        @include abst.fontWeight("medium");
+        line-height: 142.857%;
+      }
+
+      &-username {
+        font-size: 13px;
+        line-height: 146.154%;
+      }
+    }
+
+    &-actions {
+      @include abst.flexbox(
+        ((align-items: center, justify-content: space-between, gap: 38px))
+      );
+
+      &-right {
+        @include abst.flexbox(((align-items: center, gap: 9px)));
+      }
+    }
+
+    &-button {
+      display: inline-block;
+      position: relative;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 55px;
+      button {
+        --pd: 8px 16px;
+        --fw: 500;
+        background-color: hsl(208, 26%, 95%);
+        color: hsl(220, 10%, 12%);
+        line-height: 146.667%;
+      }
+    }
+  }
+
+  @include abst.maxWidth(767.98px) {
+    &-top {
+      --margin-bottom: 30px;
+    }
+
+    &-heading {
+      --mb: 30px;
+    }
+
+    &-classic-dot {
+      display: none;
+    }
+
+    &-list {
+      grid-auto-columns: 360px;
+    }
+
+    &-info {
+      left: 30px;
+      bottom: 30px;
+    }
+
+    &-content {
+      &-top {
+        --margin-bottom: 30px;
+      }
+
+      &-main {
+        padding-right: 0;
+      }
+    }
+
+    &-episdes {
+      &-filter {
+        display: none;
+      }
+    }
+  }
+
+  @container list-container (max-width: 1000px) {
+    &-episdes {
+      --margin-bottom: 14px;
+
+      &-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      &-item {
+        flex-direction: column;
+        --padding: 14px 20px;
+      }
+
+      &-image {
+        width: 100%;
+      }
+
+      &-icon {
+        top: 57%;
+        right: 20px;
+      }
+
+      &-info {
+        width: 100%;
+      }
+    }
+  }
+}

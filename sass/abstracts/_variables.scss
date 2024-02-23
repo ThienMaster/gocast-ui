@@ -1,0 +1,26 @@
+$font-primary: "IBM Plex Sans", sans-serif;
+$bg-color: #fff;
+$bg-gradient: linear-gradient(92deg, #415ef4 0.33%, #7141ef 28.14%);
+$text-gray: #8393aa;
+$text-black-all: #1c1e22;
+$text-black-1: #1c1e22;
+$text-white: #fff;
+$text-active: #11142c;
+$text-primary-black: #232334;
+$gray-e9: #ebeff5;
+$gray-natural-2: #eff2f6;
+$gray-1: #5e6064;
+$gray-2: #a5a6b1;
+$gray-3: #48494c;
+$primary-color: #6e5fd3;
+$neutral-01: #fcfcfc;
+$natural: #676a6f;
+$natural-1: #f7f7f7;
+$natural-4: #e3e3e3;
+$primary-black: #232334;
+$bg-3: #373a43;
+:root {
+  --primary-h: 248; //--> Hue is a degree color
+  --primary-s: 57%; // --> Saturation
+  --primary-l: 60%; // --> Light
+}

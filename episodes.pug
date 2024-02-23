@@ -1,0 +1,53 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/episodes.css")
+
+block title
+  title GoCast UI - Episodes
+
+block main
+  -
+    var table_episodes = [
+      {flb: "checkbox1", iip: "checkbox1", image: "./images/episodes/episodes-5.png", heading: "Change Your Brain: Neuroscientist",
+      heading_1: "Dr. Andrew Huberman", desc: "Rich Roll Podcast", duration: "02:10:25"},
+
+      {flb: "checkbox2", iip: "checkbox2", image: "./images/episodes/episodes-6.png", heading: "UI / UX Design Tutorial – Wireframe,", heading_1: "Mockup & Design in Figma", desc: "freeCodeCamp", duration: "00:10:25"},
+
+      {flb: "checkbox3", iip: "checkbox3", image: "./images/episodes/episodes-7.png", heading: "UX Design vs UI Design - What's The", heading_1: "Difference? (2022)", desc: "careerfoundry", duration: "02:10:25"},
+
+      {flb: "checkbox4", iip: "checkbox4", image: "./images/episodes/episodes-7.png", heading: "Graphic Design Theory Class 1 Urdu", heading_1: "/ Hindi", desc: "GFXMentor", duration: "01:10:45"},
+
+      {flb: "checkbox5", iip: "checkbox5", image: "./images/episodes/episodes-8.png", heading: "Graphic Design Theory Class 1 Urdu", heading_1: "/ Hindi", desc: "GFXMentor", duration: "01:10:45"},
+
+      {flb: "checkbox6", iip: "checkbox6", image: "./images/episodes/episodes-9.png", heading: "Basic Selections - Adobe Photoshop", heading_1: "for Beginners - Class 1", desc: "GFXMentor", duration: "01:10:59"},
+
+      {flb: "checkbox7", iip: "checkbox7", image: "./images/episodes/episodes-10.png", heading: "Change Your Brain: Neuroscientist", heading_1: "Dr. Andrew Huberman", desc: "GFXMentor", duration: "01:10:59"}
+    ];
+
+  .episodes
+    .episodes-top
+      h2.heading.episodes-heading Episodes
+      button.button
+        include ./views/icons/_icon-cloud-upload
+        span Upload New Episodes
+      button.button.button-mobile
+        include ./views/icons/_icon-cloud-upload
+    .episodes-table
+      table
+        thead
+          tr
+            th
+              label(for="checkbox").checkbox-label
+                input(type="checkbox" id="checkbox").checkbox-input
+                .checkbox
+                  include ./views/icons/_icon-check
+            th Thumbnail
+            th Name
+            th Duration
+            th Audio Status
+            th Publish Date
+            th Status
+            th Action
+        tbody
+          each table_episodes_item in table_episodes
+            +tableEpisodesItem(table_episodes_item.for, table_episodes_item.id, table_episodes_item.image, table_episodes_item.heading, table_episodes_item.heading_1, table_episodes_item.desc, table_episodes_item.duration)

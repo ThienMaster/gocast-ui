@@ -1,0 +1,60 @@
+@use "../../abstracts" as abst;
+
+.follow {
+  &-list {
+    @include abst.flexbox(((flex-direction: column, gap: 20px)));
+  }
+
+  &-item {
+    @include abst.flexbox(
+      ((align-items: center, justify-content: space-between))
+    );
+
+    &:nth-child(3) {
+      & .follow-action {
+        button {
+          --pd: 6px 18px;
+          line-height: 146.667%;
+          border: 2px solid #e5eaf1;
+          color: #a5b4cb;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  &-action {
+    button {
+      --pd: 6px 18px;
+      line-height: 146.667%;
+    }
+  }
+
+  &-user {
+    @include abst.flexbox(((align-items: center, gap: 12px)));
+
+    &-avatar {
+      flex: 0 0 46px;
+      aspect-ratio: 1;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px hsl(341, 100%, 84%);
+      border-radius: 6px;
+
+      img {
+        @include abst.imageCover;
+        border-radius: inherit;
+      }
+    }
+
+    &-name {
+      @include abst.fontWeight("medium");
+      line-height: 146.667%;
+      margin-bottom: 4px;
+    }
+
+    &-username {
+      color: abst.$gray-2;
+      font-size: 13px;
+      line-height: 146.154%;
+    }
+  }
+}

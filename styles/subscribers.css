@@ -1,0 +1,118 @@
+:root {
+  --primary-h: 248;
+  --primary-s: 57%;
+  --primary-l: 60%;
+}
+
+.subscribers {
+  container-type: inline-size;
+  container-name: subscribers;
+}
+.subscribers-heading {
+  --mb: 40px;
+  font-size: 22px;
+  line-height: 109.091%;
+}
+.subscribers-table {
+  overflow-x: auto;
+  border: 1px solid #fff;
+}
+@container subscribers (max-width: 920px) {
+  .subscribers-table table th:first-child,
+  .subscribers-table table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+  }
+  .subscribers-table table th:nth-child(2),
+  .subscribers-table table td:nth-child(2) {
+    position: sticky;
+    left: 100px;
+    background-color: #fff;
+  }
+  .subscribers-table table th:not(:first-child),
+  .subscribers-table table td {
+    min-width: 100px;
+  }
+}
+.subscribers table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.subscribers table th,
+.subscribers table td {
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.subscribers table thead .checkbox {
+  background-color: hsl(248, 57%, 60%);
+  border-color: hsl(248, 57%, 60%);
+  color: #fff;
+}
+.subscribers table tbody tr:last-child .subscribers-badge,
+.subscribers table tr:nth-child(2) .subscribers-badge,
+.subscribers table tr:nth-child(4) .subscribers-badge {
+  color: #6c5dd3;
+  background-color: #f0effb;
+}
+.subscribers table tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+.subscribers table th {
+  color: #a5a6b1;
+  padding-bottom: 25px;
+}
+.subscribers table td {
+  color: #5f6164;
+  padding: 27px 25px 23px 0;
+}
+.subscribers table td:nth-child(5) {
+  padding-left: 12px;
+}
+.subscribers-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.subscribers-user-image {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+.subscribers-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100rem;
+}
+.subscribers-user-name {
+  color: #1c1e22;
+  font-size: 16px;
+  line-height: 150%;
+}
+.subscribers-badge, .subscribers-follow {
+  height: 26px;
+  padding-inline: 16px;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.subscribers-badge {
+  color: #ffa2c0;
+  background-color: #fff6f9;
+}
+.subscribers-follow {
+  color: #fff;
+  background-color: #ff754c;
+  cursor: pointer;
+}
+.subscribers-link {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=subscribers.css.map */

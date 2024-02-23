@@ -1,0 +1,67 @@
+@use "../abstracts" as abst;
+
+.topbar {
+  background-color: #fff;
+  padding: 24px 56px;
+  @include abst.flexbox(
+    ((align-items: center, justify-content: space-between))
+  );
+
+  &-logo {
+    flex-shrink: 0;
+    @include abst.minWidth(1298px) {
+      display: none;
+    }
+  }
+
+  &-right {
+    @include abst.flexbox(((align-items: center, gap: 24px)));
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+
+  &-profile {
+    @include abst.size(48px);
+    img {
+      @include abst.imageCover();
+      @include abst.rounded("rounded-full");
+    }
+  }
+}
+
+.search {
+  padding: 12px 20px;
+  background-color: abst.$gray-natural-2;
+  @include abst.rounded("rounded-L");
+  @include abst.flexbox(((align-items: center, gap: 12px)));
+  flex: 0 1 360px;
+
+  &-input {
+    color: abst.$primary-color;
+    @include abst.fontWeight("medium");
+    line-height: 146.667%;
+    flex: 1;
+    caret-color: abst.$primary-color;
+    @include abst.placeholder(abst.$gray-2);
+  }
+}
+
+.button-upload {
+  --gap: 6px;
+  --pd: 0 16px;
+  height: 48px;
+  line-height: 146.667%;
+}
+
+@include abst.maxWidth(1099.98px) {
+  .topbar {
+    padding: 20px 24px;
+  }
+
+  .topbar-action,
+  .search,
+  .button-upload {
+    display: none;
+  }
+}

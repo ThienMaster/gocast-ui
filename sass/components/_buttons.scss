@@ -1,0 +1,19 @@
+@use "../abstracts/" as abst;
+
+.button {
+  --gap: 10px;
+  --fw: 600;
+  --pd: 8px 14px;
+  @include abst.flexbox(
+    ((align-items: center, justify-content: center, gap: var(--gap)))
+  );
+  @include abst.rounded("rounded-S");
+  font-weight: var(--fw);
+  font-size: 15px;
+  padding: var(--pd);
+
+  &--primary {
+    background-color: abst.$primary-color;
+    color: abst.$neutral-01;
+  }
+}

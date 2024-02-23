@@ -1,0 +1,259 @@
+@use "./abstracts" as abst;
+
+.topics {
+  &-wrapper {
+    display: grid;
+    grid-template-columns: minmax(710px, 2fr) minmax(0, 1fr);
+    gap: 60px;
+  }
+
+  &-tab {
+    @include abst.flexbox(((align-items: center, gap: 12px)));
+    font-size: 13px;
+    line-height: 146.154%;
+    margin-bottom: 28px;
+
+    &-item {
+      @include abst.flexbox(((align-items: center, gap: 6px)));
+
+      &:first-child {
+        color: abst.$gray-2;
+      }
+    }
+  }
+
+  &-heading {
+    font-size: 22px;
+    line-height: 109.091%;
+  }
+
+  &-podcast {
+    color: abst.$gray-2;
+    font-size: 14px;
+    @include abst.fontWeight("medium");
+    line-height: 142.857%;
+    margin-block: 6px 20px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 16px 14px;
+    background-color: #fff;
+    @include abst.rounded("rounded-M");
+    box-shadow: -10px 24px 35px 0px rgba(227, 230, 236, 0.25),
+      -1px -3px 14px 0px rgba(227, 230, 236, 0.2);
+    position: relative;
+  }
+
+  &-image {
+    flex: 0 0 213px;
+    aspect-ratio: 1;
+    height: 159px;
+
+    img {
+      @include abst.imageCover();
+      border-radius: 14px;
+    }
+  }
+
+  &-main {
+    flex: 1;
+  }
+
+  &-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &-headings {
+    font-size: 16px;
+    line-height: 150%;
+    @include abst.fontWeight("medium");
+  }
+
+  &-desc {
+    color: abst.$gray-2;
+    font-size: 14px;
+    @include abst.fontWeight("medium");
+    line-height: 142.857%;
+    margin-block: 4px 16px;
+
+    &-podcast {
+      margin-right: 6px;
+      padding-right: 10px;
+      position: relative;
+      &::before {
+        content: "";
+        @include abst.size(5px);
+        border-radius: 1rem;
+        background-color: #a5b4cb;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &-sound {
+    padding-right: 8px;
+  }
+
+  &-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    &-left {
+      display: flex;
+      gap: 16px;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      span {
+        color: abst.$gray-2;
+        font-size: 13px;
+        @include abst.fontWeight("medium");
+        line-height: 138.462%;
+      }
+    }
+  }
+
+  &-right {
+    h3 {
+      margin-block: 74px 20px;
+    }
+  }
+
+  &-sort {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &-image {
+      flex: 0 0 70px;
+      aspect-ratio: 1;
+      position: relative;
+
+      img {
+        @include abst.imageCover();
+        border-radius: 4px;
+      }
+    }
+
+    // &-overlay {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   @include abst.size(70px);
+    //   border-radius: 4px;
+    //   background: abst.$text-black-1;
+    //   opacity: 0.6;
+    // }
+
+    // &-icon {
+    //   position: absolute;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   cursor: pointer;
+    // }
+
+    &-content {
+      flex: 1;
+    }
+
+    &-heading {
+      @include abst.fontWeight("medium");
+      line-height: 146.667%;
+    }
+
+    &-desc {
+      color: abst.$gray-2;
+      font-size: 13px;
+      line-height: 146.154%;
+
+      &-day {
+        margin-right: 6px;
+        padding-right: 10px;
+        position: relative;
+        &::before {
+          content: "";
+          @include abst.size(4px);
+          border-radius: 1rem;
+          background-color: abst.$gray-1;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &-button button {
+      --pd: 8px 20px;
+      --fw: 500;
+      color: abst.$text-black-1;
+      background-color: abst.$gray-natural-2;
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  &-icon-more {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+  }
+
+  @include abst.maxWidth(767.98px) {
+    &-item {
+      flex-direction: column;
+    }
+
+    &-image,
+    &-main {
+      width: 100%;
+    }
+
+    &-icon-more {
+      display: none;
+    }
+  }
+
+  @container main-container (max-width: 1000px) {
+    &-wrapper {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 50px;
+    }
+
+    &-right {
+      h3 {
+        margin-block: 0 20px;
+      }
+    }
+  }
+}

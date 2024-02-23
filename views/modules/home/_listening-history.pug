@@ -1,0 +1,12 @@
+-
+  var listening_list = [
+    {image: "./images/listening/listening-1.png", singer: "Perspective with Yahia Amin", song: "Don't Always Win | LifeSpring"},
+    {image: "./images/listening/listening-2.png", singer: "Perspective with Mufti Menk", song: "Keep Moving. Don't Look Back!"},
+    {image: "./images/listening/listening-3.png", singer: "Perspective with Yahia Amin", song: "Don't Always Win | LifeSpring"}
+  ];
+
+.widget.widget-listening
+  +widgetHeader("Listening History", "View all")
+  .listening-list
+    each listening_item in listening_list
+      +listeningItem(listening_item.image, listening_item.singer, listening_item.song)

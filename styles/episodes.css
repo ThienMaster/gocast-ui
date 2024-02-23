@@ -1,0 +1,139 @@
+:root {
+  --primary-h: 248;
+  --primary-s: 57%;
+  --primary-l: 60%;
+}
+
+.episodes {
+  container-type: inline-size;
+  container-name: episodes;
+}
+.episodes-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.episodes-top .button {
+  --gap: 6px;
+  --fw: 500;
+  --pd: 8px 16px;
+  background-color: #f0effb;
+}
+.episodes-top .button-mobile {
+  --pd: 6px;
+  background-color: #f0effb;
+  display: none;
+}
+.episodes-top span {
+  color: #6e5fd3;
+  font-size: 14px;
+  line-height: 142.857%;
+}
+@container episodes (max-width: 920px) {
+  .episodes-top .button {
+    display: none;
+  }
+  .episodes-top .button-mobile {
+    display: block;
+  }
+}
+.episodes-heading {
+  font-size: 22px;
+  line-height: 109.091%;
+}
+.episodes-table {
+  overflow-x: auto;
+  border: 1px solid #fff;
+}
+@container episodes (max-width: 920px) {
+  .episodes-table table th:first-child,
+  .episodes-table table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+  }
+  .episodes-table table th:nth-child(2),
+  .episodes-table table td:nth-child(2) {
+    position: sticky;
+    left: 100px;
+    background-color: #fff;
+  }
+  .episodes-table table th:not(:first-child),
+  .episodes-table table td {
+    min-width: 100px;
+  }
+}
+.episodes table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.episodes table th,
+.episodes table td {
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.episodes table thead .checkbox {
+  background-color: hsl(248, 57%, 60%);
+  border-color: hsl(248, 57%, 60%);
+  color: #fff;
+}
+.episodes table tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+.episodes table th {
+  color: #a5a6b1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 142.857%;
+  padding-bottom: 27px;
+}
+.episodes table td {
+  color: #1c1e22;
+  font-weight: 500;
+  line-height: 146.667%;
+  padding: 29px 20px 27px 0;
+}
+.episodes-image {
+  width: 72px;
+  height: 72px;
+}
+.episodes-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.episodes-desc {
+  color: #a5a6b1;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.episodes-status {
+  height: 34px;
+  background-color: #f0effb;
+  border-radius: 6px;
+  padding-inline: 10px;
+  color: #7b6dd7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+}
+.episodes-action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.episodes-action-item {
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=episodes.css.map */

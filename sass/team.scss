@@ -1,0 +1,116 @@
+@use "./abstracts" as abst;
+
+.team {
+  container-type: inline-size;
+  container-name: team;
+  &-top {
+    @include abst.flexbox(
+      ((align-items: center, justify-content: space-between))
+    );
+    margin-bottom: 33px;
+
+    .button {
+      --fw: 500;
+      --pd: 9px 16px;
+      background-color: #f0effb;
+    }
+
+    .button-mobile {
+      --pd: 8px;
+      background-color: #f0effb;
+      display: none;
+    }
+
+    span {
+      color: abst.$primary-color;
+      font-size: 14px;
+      line-height: 142.857%;
+    }
+
+    @container team (max-width: 920px) {
+      .button {
+        display: none;
+      }
+
+      .button-mobile {
+        display: block;
+      }
+    }
+  }
+
+  &-heading {
+    font-size: 22px;
+    line-height: 109.091%;
+  }
+
+  &-table {
+    @container team (max-width: 719.98px) {
+      overflow-x: auto;
+      table {
+        th:first-child,
+        td:first-child {
+          position: sticky;
+          left: 0;
+          background-color: #fff;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+          position: sticky;
+          left: 40px;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+      font-size: 14px;
+      @include abst.fontWeight("medium");
+      line-height: 142.857%;
+    }
+
+    thead .checkbox {
+      background-color: hsl(248, 57%, 60%);
+      border-color: hsl(248, 57%, 60%);
+      color: #fff;
+    }
+
+    tr {
+      border-bottom: 1px solid abst.$natural-4;
+    }
+
+    th {
+      color: abst.$gray-2;
+      padding-bottom: 25px;
+    }
+
+    td {
+      color: #5f6164;
+      padding: 34px 20px 30px 0;
+    }
+  }
+
+  &-email {
+    color: abst.$text-black-1;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &-invite {
+    height: 26px;
+    padding-inline: 16px;
+    border-radius: 4px;
+    background-color: #fff1ed;
+    color: #ff754c;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,44 @@
+@use "../../abstracts" as abst;
+
+.topic {
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 22px;
+  }
+
+  &-item {
+    position: relative;
+    @include abst.rounded("rounded-L");
+  }
+
+  &-image {
+    @include abst.size(100%, 86px);
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  &-content {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    color: white;
+    background-color: hsla(220, 10%, 12%, 0.7);
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  &-title {
+    @include abst.fontWeight("medium");
+    font-size: 14px;
+    line-height: 142.857%;
+  }
+
+  &-quantity {
+    font-size: 13px;
+    line-height: 146.154%;
+  }
+}

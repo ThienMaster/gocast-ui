@@ -1,0 +1,111 @@
+@use "../../abstracts" as abst;
+
+.trending {
+  padding-block: 55px 36px;
+  container-type: inline-size;
+  container-name: trending;
+  position: relative;
+  &-heading {
+    --mb: 11px;
+  }
+
+  &-banner {
+    padding: 20px;
+    background-color: abst.$natural-1;
+    @include abst.rounded("rounded-M");
+    @include abst.flexbox(((align-items: flex-start)));
+    position: relative;
+  }
+
+  &-content {
+    flex: 0 0 310px;
+
+    button {
+      box-shadow: 0px 16px 24px 0px rgba(108, 93, 211, 0.1);
+    }
+  }
+
+  &-title {
+    font-size: 22px;
+    @include abst.fontWeight("semibold");
+    line-height: 145.455%;
+    margin-bottom: 11px;
+
+    span {
+      @include abst.textGradient();
+      background-image: abst.$bg-gradient;
+    }
+  }
+
+  &-podcast {
+    font-size: 14px;
+    color: abst.$natural;
+    line-height: 142.857%;
+    margin-bottom: 4px;
+  }
+
+  &-author {
+    font-size: 14px;
+    color: abst.$primary-black;
+    margin-bottom: 20px;
+    line-height: 142.857%;
+
+    span {
+      color: abst.$natural;
+    }
+  }
+
+  &-frame,
+  &-vector {
+    position: absolute;
+  }
+
+  &-frame {
+    right: 217px;
+    bottom: 0;
+  }
+
+  &-vector {
+    right: 74px;
+    bottom: 153px;
+  }
+
+  &-image {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    max-width: 332px;
+  }
+
+  &-classic-dot {
+    position: absolute;
+    left: 50%;
+    margin-top: 16px;
+  }
+
+  @include abst.maxWidth(767px) {
+    padding-block: 35px 25px;
+    &-frame {
+      right: 15px;
+    }
+
+    &-vector {
+      right: 22px;
+      top: 69px;
+    }
+  }
+
+  @container trending (max-width: 630px) {
+    &-image {
+      display: none;
+    }
+
+    &-content {
+      flex: 1;
+    }
+
+    &-classic-dot {
+      display: none;
+    }
+  }
+}

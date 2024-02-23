@@ -1,0 +1,33 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/leaderboard.css")
+
+block title
+  title GoCast UI - Leaderboard
+
+block main
+  -
+    var table_leaderboard = [
+      {icon: 'icon-medal-1', image: "./images/subscribers/subscribers_1.png", name: "Thomas L. Fletcher", bio: "Product Designer"},
+      {icon: 'icon-medal-2', image: "./images/subscribers/subscribers_2.png", name: "Jane Cooper", bio: "UI Designer"},
+      {icon: 'icon-medal-3', image: "./images/subscribers/subscribers_3.png", name: "Wade Warren", bio: "Medical Assistant"},
+      {icon: 'icon-medal-4', image: "./images/subscribers/subscribers_4.png", name: "Esther Howard", bio: "President of Sales"},
+      {icon: 'icon-medal-4', image: "./images/subscribers/subscribers_5.png", name: "Brooklyn Simmons", bio: "Marketing Coordinator"},
+      {icon: 'icon-medal-4', image: "./images/subscribers/subscribers_6.png", name: "Courtney Henry", bio: "Medical Assistant"},
+      {icon: 'icon-medal-4', image: "./images/subscribers/subscribers_7.png", name: "Darrell Steward", bio: "Web Designer"}
+    ];
+
+  .leaderboard
+      h2.heading.leaderboard-heading Leaderboard
+      .leaderboard-button
+        +button(false, "Reviews")
+        +button(false, "Ratings")
+        +button(false, "Followers")
+      .leaderboard-table
+        table
+          tbody
+            each table_leaderboard_item in table_leaderboard
+              +tableLeaderboardItem(table_leaderboard_item.icon, table_leaderboard_item.image, table_leaderboard_item.name, table_leaderboard_item.bio)
+
+
+

@@ -1,0 +1,132 @@
+@use "./abstracts" as abst;
+
+.subscribers {
+  container-type: inline-size;
+  container-name: subscribers;
+  &-heading {
+    --mb: 40px;
+    font-size: 22px;
+    line-height: 109.091%;
+  }
+
+  &-table {
+    overflow-x: auto;
+    border: 1px solid #fff;
+
+    @container subscribers (max-width: 920px) {
+      table {
+        th:first-child,
+        td:first-child {
+          position: sticky;
+          left: 0;
+          background-color: #fff;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+          position: sticky;
+          left: 100px;
+          background-color: #fff;
+        }
+
+        th:not(:first-child),
+        td {
+          min-width: 100px;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+      font-size: 14px;
+      @include abst.fontWeight("medium");
+      line-height: 142.857%;
+    }
+
+    thead .checkbox {
+      background-color: hsl(248, 57%, 60%);
+      border-color: hsl(248, 57%, 60%);
+      color: #fff;
+    }
+
+    tbody tr:last-child,
+    tr:nth-child(2),
+    tr:nth-child(4) {
+      .subscribers-badge {
+        color: #6c5dd3;
+        background-color: #f0effb;
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid abst.$natural-4;
+    }
+
+    th {
+      color: abst.$gray-2;
+      padding-bottom: 25px;
+    }
+
+    td {
+      color: #5f6164;
+      padding: 27px 25px 23px 0;
+    }
+
+    td:nth-child(5) {
+      padding-left: 12px;
+    }
+  }
+
+  &-user {
+    @include abst.flexbox(((align-items: center, gap: 10px)));
+
+    &-image {
+      @include abst.size(38px);
+      flex-shrink: 0;
+
+      img {
+        @include abst.imageCover();
+        @include abst.rounded("rounded-full");
+      }
+    }
+
+    &-name {
+      color: abst.$text-black-1;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+
+  &-badge,
+  &-follow {
+    height: 26px;
+    padding-inline: 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-badge {
+    color: #ffa2c0;
+    background-color: #fff6f9;
+  }
+
+  &-follow {
+    color: #fff;
+    background-color: #ff754c;
+    cursor: pointer;
+  }
+
+  &-link {
+    cursor: pointer;
+  }
+}

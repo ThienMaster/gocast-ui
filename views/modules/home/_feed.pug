@@ -1,0 +1,27 @@
+-
+  var feed_item_list = [
+    {avt_image: "./images/avatars/Cody.png", avt_alt: "Cody", author: "James Killened", date: "Jun 25th", image: "./images/micro.png", img_alt: "Micro", podcast: "Perspective Podcast (Ep. 1)", heading: "Philosophy vs Religion vs Science: Yahia Amin and Sadman Sadik", desc: "Play Philosophy vs Religion vs Science: Perspective Podcast (Ep. 1) | Yahia Amin and Sadman Sadik by PERSPECTIVE with Yahia Amin on desktop and mobile. Play over 265 million tracks for..."},
+
+    {avt_image: "./images/avatars/Thomas.png", avt_alt: "Thomas", author: "Thomas L. Fletcher", date: "@thomas231 · Jun 25th", image: "./images/Feed.png", img_alt: "Feed", podcast: "How To & Tips", heading: "UX Design Process: Mental Modeling Framework, How To & Tips", desc: "Nicole is a User Experience Designer passionate about technology startups, cars, education & music. Based in Los Angeles CA., she is a User Experience Designer @ Iconmobile, an award-winning mobile"},
+
+    {avt_image: "./images/avatars/Cody.png", avt_alt: "Cody", author: "James Killened", date: "Jun 25th", image: "./images/Feed-1.png", img_alt: "Feed-1", podcast: "Perspective Podcast (Ep. 1)", heading: "I CAN'T DO THIS | Islam and Mental Health | Full Podcast", desc: "The relationship between mental health and faith is a topic that has long been riddled with confusion, debate, and much misconception."}
+  ];
+
+.feed
+  .feed-header
+    .feed-tab
+      each tab, index in ["My Feed", "Popular Feed", "Recent"]
+        .feed-tab-item(class= `${index === 0 ? 'is-active' : ''}`)= tab
+    .feed-toggle
+      +toggle
+      p New Releases &amp; Guests Only
+  .feed-main
+    each feed_item in feed_item_list
+      +feedItem(feed_item.avt_image, feed_item.avt_alt, feed_item.author, feed_item.date, feed_item.image, feed_item.img_alt, feed_item.podcast, feed_item.heading, feed_item.desc)
+
+  //- Cách 2
+    //- +feedItem("./images/avatars/Cody.png", "Cody", "James Killened", "Jun 25th", "./images/micro.png", "Micro", "Perspective Podcast (Ep. 1)", "Philosophy vs Religion vs Science: Yahia Amin and Sadman Sadik", "Play Philosophy vs Religion vs Science: Perspective Podcast (Ep. 1) | Yahia Amin and Sadman Sadik by PERSPECTIVE with Yahia Amin on desktop and mobile. Play over 265 million tracks for...")
+    //- +feedItem("./images/avatars/Thomas.png", "Thomas", "Thomas L. Fletcher", "@thomas231 · Jun 25th", "./images/Feed.png", "Feed", "How To & Tips", "UX Design Process: Mental Modeling Framework, How To & Tips", "Nicole is a User Experience Designer passionate about technology startups, cars, education & music. Based in Los Angeles CA., she is a User Experience Designer @ Iconmobile, an award-winning mobile")
+    //- +feedItem("./images/avatars/Cody.png", "Cody", "James Killened", "Jun 25th", "./images/Feed-1.png", "Feed-1", "Perspective Podcast (Ep. 1)", "I CAN'T DO THIS | Islam and Mental Health | Full Podcast", "The relationship between mental health and faith is a topic that has long been riddled with confusion, debate, and much misconception.")
+
+

@@ -1,0 +1,51 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/topics.css")
+
+block title
+  title GoCast UI - Explore Topics
+
+block main
+  -
+    var topis_list = [
+      {image: "./images/episdes/image/Episdes-1.png", icon: 'icon-play-circle', heading: "Healthy Spirituality: What & why?  | Yahia Amin", icon_sound: 'icon-play-sound'},
+
+      {image: "./images/episdes/image/Episdes-5.png", icon: 'icon-pause-circle', heading: "The Difference Between Religion And Spirituality", icon_sound: 'icon-pause-sound'},
+
+      {image: "./images/episdes/image/Episdes-3.png", icon: 'icon-pause-circle', heading: "Being Religious vs. Spiritual - The Real Difference?", icon_sound: 'icon-pause-sound'},
+
+      {image: "./images/listening/listening-3.png", icon: 'icon-pause-circle', heading: "Healthy Spirituality: What & why?  | Yahia Amin", icon_sound: 'icon-pause-sound'}
+    ];
+
+    var topics_sort_list = [
+      {image: "./images/sort/sort-2.png", heading: "Christian Sister Accept Islam | Dr. Zakir Naik"},
+      {image: "./images/sort/sort.png", heading: "Spirituality vs. Religion | Big Think"},
+      {image: "./images/episdes/image/Episdes-3.png", heading: "Christian Sister Accept Islam | Dr. Zakir Naik"},
+      {image: "./images/podcast/podcast-5.png", heading: "An Atheist Debates | Dr ZakirNaik"},
+      {image: "./images/sort/sort-1.png", heading: "Healthy Spirituality | Yahia Amin"}
+    ];
+
+  .topics-wrapper
+    .topics-left
+      .topics-tab
+        .topics-tab-item
+          .topics-icon
+            include ./views/icons/_icon-cheveron-left
+          span Explore Topics
+        .topics-tab-item.is-active
+          .topics-icon
+              include ./views/icons/_icon-cheveron-black
+          span Religion &amp; Spirituality
+      .topics-content
+        h2.heading.topics-heading Popular Religion &amp; Spirituality podcast episodes
+        p.topics-podcast Most listend to podcast
+        .topics-list
+          each topics in topis_list
+            +topicsItem(topics.image, topics.icon, topics.heading, topics.icon_sound)
+    .topics-right
+      h3.heading.topics-heading Sort Podcast
+      .topics-sort-list
+        each topics_sort in topics_sort_list
+          +topisSortItem(topics_sort.image, topics_sort.heading)
+      .topics-sort-button
+        +button(false, "See More")

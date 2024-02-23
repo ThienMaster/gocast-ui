@@ -1,0 +1,474 @@
+//- /*---------- Mixin Menu Item ----------*/
+mixin menuItem(text, icon = '', href = "#")
+  li.menu-item
+    a.menu-link(href= href)
+      span.menu-icon
+        if icon
+          case icon
+            when 'icon-home'
+              include ../icons/_icon-home
+            when 'icon-chart'
+              include ../icons/_icon-chart
+            when 'icon-cube'
+              include ../icons/_icon-cube
+            when 'icon-play'
+              include ../icons/_icon-play
+            when 'icon-subs'
+              include ../icons/_icon-subs
+            when 'icon-discovery'
+              include ../icons/_icon-discovery
+            when 'icon-microphone'
+              include ../icons/_icon-microphone
+            when 'icon-user'
+              include ../icons/_icon-user
+            when 'icon-add-user'
+              include ../icons/_icon-add-user
+            when 'icon-medal'
+              include ../icons/_icon-medal
+      span.menu-text= text
+
+//- /*---------- Mixin Toggle ----------*/
+mixin toggle()
+  label(for="toggle").toggle
+    input(type="checkbox", name="", id="toggle")
+    .toggle-main
+      .toggle-spinner
+
+//- /*---------- Mixin Button ----------*/
+mixin button(icon = false, title)
+  button.button.button--primary
+    if icon
+      include ../icons/_icon-playms
+    span= title
+
+//- /*---------- Mixin Feed Item ----------*/
+mixin feedItem(avt_image, avt_alt, author, date, image, img_alt, podcast, heading, desc)
+  .feed-item
+    .feed-item-header
+      .feed-author
+        .feed-author-avatar
+          img(src= avt_image, alt= avt_alt)
+          span.feed-author-verify
+            include ../icons/_icon-verify
+        .feed-author-content
+          .feed-author-header
+            h4.feed-author-name= author
+            .feed-author-rating
+              span rated an episude
+              img(src="./images/Star.png", alt="star")
+          .feed-author-date= date
+      span
+        include ../icons/_icon-more
+    .feed-item-main
+      .feed-image
+        img(src= image, alt= img_alt)
+      .feed-item-content
+        p.feed-item-podcast= podcast
+        h3.feed-item-heading= heading
+        .feed-item-date
+            include ../icons/_icon-time-circle
+            span.feed-item-date-day 11 days ago
+            include ../icons/_icon-timer
+            span 45mins 10Sec
+        p.feed-item-desc= desc
+      .feed-item-union
+        img(src="./images/Union.png", alt="Union")
+    .feed-item-footer
+      .feed-item-actions
+        button
+          include ../icons/_icon-heart
+        button
+          include ../icons/_icon-magic-star
+        button
+          include ../icons/_icon-music
+      +button(true, "Play Episode")
+
+//- /*---------- Mixin Widget Header ----------*/
+mixin widgetHeader(title, view_all)
+  .widget-header
+    h3.widget-heading= title
+    a.widget-view-all(href="#")= view_all
+
+//- /*---------- Mixin Follow Item ----------*/
+mixin followItem(image, alt, name, username)
+  .follow-item
+    .follow-user
+      .follow-user-avatar
+        img(src= image, alt= alt)
+      .follow-user-info
+        h4.follow-user-name= name
+        span.follow-user-username= username
+    .follow-action
+      +button(false, "Follow")
+
+//- /*---------- Mixin Listening Item ----------*/
+mixin listeningItem(image, singer, song)
+  .listening-item
+    .listening-image
+      img(src= image, alt="")
+    .listening-content
+      span.listening-singer= singer
+      h4.listening-song= song
+      .listening-meta
+        .listening-meta-item
+          include ../icons/_icon-play-2
+          span 156
+        .listening-meta-item
+          include ../icons/_icon-heart
+          span 78
+
+
+//- /*---------- Mixin Topic Item ----------*/
+mixin topicItem(image, alt)
+  .topic-item
+    img.topic-image(src= image, alt= alt)
+    .topic-content
+      h4.topic-title 👫 Society &amp; Culture
+      p.topic-quantity 761k podcast
+
+//- /*---------- Mixin Trending Item ----------*/
+mixin trendingItem(image, alt, title, podcast, author)
+  li.trending-item
+    img(src= image, alt= alt)
+    .trending-info
+      h3.trending-title= title
+      span.trending-podcast= podcast
+      p.trending-author= author
+      +button(true, "Play Now")
+
+//- /*---------- Mixin Trending-Episdes Item ----------*/
+mixin trendingEpisdesItem(image, title, author_avatar, author_name, author_username, icon = '')
+  li.trending-episdes-item
+    .trending-episdes-image
+      img(src= image, alt="")
+    .trending-episdes-info
+      h5.trending-episdes-title= title
+      p.trending-episdes-podcast Perspective Podcast
+      .trending-episdes-describe
+        .trending-episdes-describe-item
+          include ../icons/_icon-ellipse
+          span 1.2k Played
+        .trending-episdes-describe-item
+          include ../icons/_icon-ellipse-red
+          span 1 week ago
+      .trending-episdes-author
+        .trending-episdes-author-avatar
+          img(src= author_avatar, alt="")
+        .trending-episdes-author-content
+          p.trending-episdes-author-name= author_name
+          span.trending-episdes-author-username= author_username
+      .trending-episdes-actions
+        .trending-episdes-actions-left
+          if icon
+            case icon
+              when 'icon-music-1'
+                include ../icons/_icon-music-1
+              when 'icon-music-2'
+                include ../icons/_icon-music-2
+
+        .trending-episdes-actions-right
+          button
+            include ../icons/_icon-share
+          button
+            include ../icons/_icon-heart-red
+    .trending-episdes-icon
+      button
+        include ../icons/_icon-more
+
+//- /*---------- Mixin Topics Item ----------*/
+mixin topicsItem(image, icon = '', heading, icon_sound = '')
+  .topics-item
+    .topics-image
+      img(src= image, alt="")
+    .topics-main
+      .topics-title
+        .topics-icons
+          if icon
+            case icon
+              when 'icon-play-circle'
+                include ../icons/_icon-play-circle
+              when 'icon-pause-circle'
+                include ../icons/_icon-pause-circle
+        .topics-info
+          h4.topics-headings= heading
+          .topics-desc
+            span.topics-desc-podcast Perspective Podcast ( Episodes-1)
+            span 1 Week Ago
+      .topics-sound
+        if icon_sound
+          case icon_sound
+            when 'icon-play-sound'
+              include ../icons/_icon-play-sound
+            when 'icon-pause-sound'
+              include ../icons/_icon-pause-sound
+      .topics-action
+        .topics-action-left
+          button
+            include ../icons/_icon-heart-red
+          button
+            include ../icons/_icon-magic-star
+          button
+            include ../icons/_icon-music
+        .topics-action-right
+          button
+            include ../icons/_icon-play
+          span 1.5k
+    .topics-icon-more
+      button
+        include ../icons/_icon-more
+
+//- /*---------- Mixin Topics-Sort Item ----------*/
+mixin topisSortItem(image, heading)
+  .topics-sort-item
+    .topics-sort-image
+      //- .topics-sort-overlay
+      img(src= image, alt="")
+      //- .topics-sort-icon
+      //-   include ../icons/_icon-play
+    .topics-sort-content
+      h4.topics-sort-heading= heading
+      .topics-sort-desc
+        span.topics-sort-desc-day 4 days ago
+        span 15 minute
+
+//- /*---------- Mixin Playlist Item ----------*/
+mixin playlistItem(image, heading, desc)
+  .playlist-item
+    .playlist-image
+      img(src= image, alt="")
+    .playlist-content
+      .playlist-content-top
+        h3.heading= heading
+        span.playlist-created Created on 1 day ago
+      p.playlist-desc= desc
+      .playlist-content-bottom
+        .playlist-episodes
+          each img in ["./images/episodes/episodes-1.png", "./images/episodes/episodes-2.png", "./images/episodes/episodes-3.png", "./images/episodes/episodes-4.png"]
+            .playlist-episodes-image.playlist-episode-item
+              img(src= img, alt="")
+          .playlist-episodes-number.playlist-episode-item 41+
+        .playlist-likes
+          button
+            include ../icons/_icon-heart-red
+          span.playlist-likes-count 1.5k
+
+//- /*---------- Mixin Subscriptions Item ----------*/
+mixin subscriptionsItem(image, name)
+  .subscriptions-item
+    .subscriptions-image
+      img(src= image, alt="")
+    h3.subscriptions-name= name
+    p.subscriptions-job Psychologist (UK)
+
+//- /*---------- Mixin Subscriptions-Episodes Item ----------*/
+mixin subscriptions_episodesItem(image)
+  .subscriptions-episodes-item
+    .subscriptions-episodes-content
+      .subscriptions-episodes-image
+        img(src= image, alt="")
+      .subscriptions-episodes-info
+        p.subscriptions-episodes-podcast Perspective Podcast (Ep. 1)
+        h3.subscriptions-episodes-heading Philosophy vs Religion vs Science: Yahia Amin and Sadman Sadik
+        .subscriptions-episodes-date
+          .subscriptions-episodes-date-item
+            include ../icons/_icon-time-circle
+            span 11 days ago
+          .subscriptions-episodes-date-item
+            include ../icons/_icon-timer
+            span 45mins 10Sec
+        p.subscriptions-episodes-desc Play Philosophy vs Religion vs Science: Perspective Podcast (Ep. 1) | Yahia Amin and Sadman Sadik by PERSPECTIVE with Yahia Amin...
+    .subscriptions-episodes-footer
+      .subscriptions-episodes-actions
+        button
+          include ../icons/_icon-heart
+        button
+          include ../icons/_icon-magic-star
+        button
+          include ../icons/_icon-music
+      +button(true, "Play Episode")
+
+//- /*---------- Mixin Dashboard Card Item ----------*/
+mixin dashboardCardItem(icon = '', title, number, icon_data = '', span)
+ .dashboard-card-item
+    .dashboard-card-top
+      if icon
+        case icon
+          when 'icon-subscribers'
+            include ../icons/_icon-subscribers
+          when 'icon-play'
+            include ../icons/_icon-play-pink
+          when 'icon-listen'
+            include ../icons/_icon-listen
+      span.dashboard-card-title= title
+    .dashboard-card-bottom
+      span.dashboard-card-number= number
+      .dashboard-card-data
+        if icon_data
+        case icon_data
+          when 'icon-trend-up'
+            include ../icons/_icon-trend-up
+          when 'icon-trend-down'
+            include ../icons/_icon-trend-down
+        span= span
+
+//- /*---------- Mixin Table Item ----------*/
+mixin tableItem(image, title, name, listen, plays)
+  tr
+    td
+      .dashboard-trending-episode
+        .dashboard-trending-image
+          img(src= image, alt="")
+        .dashboard-trending-info
+          p.dashboard-trending-title= title
+          span.dashboard-trending-min 31 min
+          span.dashboard-trending-day June 7, 2022
+          span.dashboard-trending-name= name
+    td
+      span.dashboard-trending-listen= listen
+    td
+      span.dashboard-trending-plays= plays
+
+//- /*---------- Mixin Dashboard Activity Item ----------*/
+mixin dashboardActivityItem(date, icon= '', percent)
+  .dashboard-activity-item
+    .dashboard-activity-top
+      span.dashboard-activity-day= date
+      .dashboard-activity-data
+        if icon
+        case icon
+          when 'icon-trend-up'
+            include ../icons/_icon-linear-trendup
+          when 'icon-trend-down'
+            include ../icons/_icon-linear-trenddown
+        span.dashboard-activity-percent= percent
+    .dashboard-activity-progress
+      p.dashboard-activity-min 345
+        span min
+      .dashboard-activity-bar
+        .dashboard-activity-bar-progress
+
+//- /*---------- Mixin Dashboard Subscribers Item ----------*/
+mixin dashboardSubscribersItem(image, name, username)
+  .dashboard-subscribers-item
+    .dashboard-subscribers-user
+      .dashboard-subscribers-user-avatar
+        img(src= image, alt="")
+      .dashboard-subscribers-user-info
+        h4.dashboard-subscribers-user-name= name
+        span.dashboard-subscribers-username= username
+    .dashboard-subscribers-action
+      +button(false, "Follow")
+
+//- /*---------- Mixin Table Episodes Item ----------*/
+mixin tableEpisodesItem(flb, iip, image, heading, heading_1, desc, duration)
+  tr
+    td
+      label(for= flb).checkbox-label
+        input(type="checkbox" id= iip).checkbox-input
+        .checkbox
+          include ../icons/_icon-check
+    td
+      .episodes-image
+        img(src= image, alt="")
+    td
+      .heading
+        h3= heading
+        span= heading_1
+      p.episodes-desc= desc
+    td
+      span.episodes-duration= duration
+    td
+      span.episodes-audio Done
+    td
+      span.episodes-date July 3, 2022 2:24
+    td
+      span.episodes-status Published
+    td
+      .episodes-action
+        .episodes-action-item
+          include ../icons/_icon-linear-edit
+        .episodes-action-item
+          include ../icons/_icon-link
+
+//- /*---------- Mixin Table Team Item ----------*/
+mixin tableTeamItem(flb, iip, email)
+  tr
+    td
+      label(for= flb).checkbox-label
+        input(type="checkbox" id= iip).checkbox-input
+        .checkbox
+          include ../icons/_icon-check
+    td
+      span.team-email= email
+    td
+      span.team-producer Producer
+    td
+      span.team-date 16 Jul 2022
+    td
+      span.team-cant Can’t Resend yet
+    td
+      span.team-invite Remove invite
+
+//- /*---------- Mixin Table Subscribers Item ----------*/
+mixin tableSubscribersItem(flb, iip, image, name, bio, badge, karma)
+  tr
+    td
+      label(for= flb).checkbox-label
+        input(type="checkbox" id= iip).checkbox-input
+        .checkbox
+          include ../icons/_icon-check
+    td
+      .subscribers-user
+        .subscribers-user-image
+          img(src= image, alt="")
+        span.subscribers-user-name= name
+    td
+      span.subscribers-bio= bio
+    td
+      span.subscribers-badge= badge
+    td
+      span.subscribers-karma= karma
+    td
+      span.subscribers-follow Follow
+    td
+      .subscribers-link
+        include ../icons/_icon-link-filled
+
+//- /*---------- Mixin Table Leaderboard Item ----------*/
+mixin tableLeaderboardItem(icon = '', image, name, bio)
+  tr
+    td
+      if icon
+        case icon
+          when 'icon-medal-1'
+            include ../icons/_icon-medal-1
+          when 'icon-medal-2'
+            include ../icons/_icon-medal-2
+          when 'icon-medal-3'
+            include ../icons/_icon-medal-3
+          when 'icon-medal-4'
+            include ../icons/_icon-medal-4
+    td
+      .leaderboard-user
+        .leaderboard-user-image
+          img(src= image, alt="")
+        .leaderboard-user-info
+          span.leaderboard-user-name= name
+          span.leaderboard-user-bio= bio
+    td
+      .leaderboard-comment
+        include ../icons/_icon-message
+        span 2.4k
+    td
+      .leaderboard-like
+        include ../icons/_icon-star
+        span 6.4k
+    td
+      .leaderboard-view
+        include ../icons/_icon-eye
+        span 456
+    td
+      span.leaderboard-follow Follow
+    td
+      .leaderboard-link
+        include ../icons/_icon-link-filled

@@ -1,0 +1,128 @@
+@use "./abstracts" as abst;
+
+.leaderboard {
+  container-type: inline-size;
+  container-name: leaderboard;
+
+  &-heading {
+    font-size: 22px;
+    line-height: 109.091%;
+  }
+
+  &-button {
+    @include abst.flexbox(((align-items: center, gap: 20px)));
+    margin-block: 30px;
+
+    button {
+      --pd: 6px 20px;
+      --fw: 500;
+      border-radius: 6px;
+      font-size: 16px;
+      line-height: 150%;
+      background-color: abst.$gray-natural-2;
+      color: abst.$text-black-1;
+      transition: all 0.25s ease;
+
+      &:hover {
+        color: #fff;
+        background-color: #6c5dd3;
+      }
+    }
+  }
+
+  &-table {
+    overflow-x: auto;
+    border: 1px solid #fff;
+
+    @container leaderboard (max-width: 920px) {
+      td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: #fff;
+      }
+
+      td:nth-child(2) {
+        position: sticky;
+        left: 100px;
+        background-color: #fff;
+      }
+
+      td {
+        min-width: 100px;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tbody tr {
+      border-bottom: 1px solid abst.$natural-4;
+    }
+
+    td {
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+      color: abst.$text-black-1;
+      @include abst.fontWeight("medium");
+      line-height: 146.667%;
+      padding: 29px 20px 19px 0;
+    }
+  }
+
+  &-user {
+    @include abst.flexbox(((align-items: center, gap: 10px)));
+
+    &-image {
+      @include abst.size(40px);
+      flex-shrink: 0;
+
+      img {
+        @include abst.imageCover();
+        @include abst.rounded("rounded-full");
+      }
+    }
+
+    &-info {
+      @include abst.flexbox(((flex-direction: column, gap: 1px)));
+      flex: 1;
+    }
+
+    &-name {
+      font-size: 16px;
+      @include abst.fontWeight("medium");
+      line-height: 150%;
+    }
+
+    &-bio {
+      color: #5f6164;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 142.857%;
+    }
+  }
+
+  &-comment,
+  &-like,
+  &-view {
+    @include abst.flexbox(((align-items: center, gap: 10px)));
+  }
+
+  &-follow {
+    height: 26px;
+    padding-inline: 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #ff754c;
+    cursor: pointer;
+  }
+
+  &-link {
+    cursor: pointer;
+  }
+}

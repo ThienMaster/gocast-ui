@@ -1,0 +1,57 @@
+extends ./views/layout/_dashboard
+append stylesheet
+  link(rel="stylesheet", href="./styles/trending.css")
+
+block title
+  title GoCast UI - Trending
+
+block main
+  -
+    var trending_list = [
+      {image: "./images/TTT.jpg", alt: "1", title: "Why Always Me ?", podcast: "Podcast Episode - 1", author: "Yahia Md Amin ( Chairman - LifeSpring Limited )"},
+      {image: "./images/Banner.png", alt: "2", title: "Don't Always Win | LifeSpring", podcast: "Podcast Episode - 1", author: "Yahia Md Amin ( Chairman - LifeSpring Limited )"},
+      {image: "./images/Mask.png", alt: "3", title: "Keep Moving. Don't Look Back!", podcast: "Podcast Episode - 1", author: "Yahia Md Amin ( Chairman - LifeSpring Limited )"}
+    ];
+
+    var trending_episdes_list = [
+      {image: "./images/episdes/image/Episdes.png", title: "SHOULD I MIGRATE?", author_avatar: "./images/episdes/avatar/avt_1.png", author_name: "Thomas L. Fletcher", author_username: "@thomaslfletcher", icon: "icon-music-1"},
+      {image: "./images/episdes/image/Episdes-1.png", title: "Improve English Listening ", author_avatar: "./images/episdes/avatar/avt_2.png", author_name: "Fletcher Thomas", author_username: "@fletcherthomasl", icon: "icon-music-2"},
+      {image: "./images/episdes/image/Episdes-2.png", title: "Design Tips from Designers", author_avatar: "./images/episdes/avatar/avt_3.png", author_name: "James Killend", author_username: "@jameskillend", icon: "icon-music-2"},
+      {image: "./images/episdes/image/Episdes-3.png", title: "Passive Income Designers", author_avatar: "./images/episdes/avatar/avt_4.png", author_name: "Cameron Williamson", author_username: "@willcameron", icon: "icon-music-2"},
+      {image: "./images/episdes/image/Episdes-4.png", title: "Psychology Behind UX Design", author_avatar: "./images/episdes/avatar/avt_5.png", author_name: "Floyd Miles", author_username: "@floydmiles", icon: "icon-music-2"},
+      {image: "./images/episdes/image/Episdes-5.png", title: "Design Tips with Sami", author_avatar: "./images/episdes/avatar/avt_6.png", author_name: "Esther Howard", author_username: "@estherhoward", icon: "icon-music-2"}
+    ];
+
+  .trending
+    .trending-top
+      h2.heading.trending-heading Trending Podcast
+      ul.trending-list
+        each trending in trending_list
+          +trendingItem(trending.image, trending.alt, trending.title, trending.podcast, trending.author)
+      .trending-classic-dot
+        include ./views/icons/_icon-classic-dot
+    .trending-content
+      .trending-content-top
+        +button(false, "All")
+        +button(false, "Shows")
+        +button(false, "Episodes")
+      .trending-content-main
+        .trending-episdes
+          .trending-episdes-wrap
+            h4.trending-episdes-heading Trending episdes
+            span The Most Popula Podcast episodes overall now. Last updated 2 hours ago
+          .trending-episdes-filter
+           span Last 1 Weeks
+           include ./views/icons/_icon-cheveron.pug
+        .trending-episdes-content
+          ul.trending-episdes-list
+            each trending_episdes_item in trending_episdes_list
+              +trendingEpisdesItem(trending_episdes_item.image, trending_episdes_item.title, trending_episdes_item.author_avatar, trending_episdes_item.author_name, trending_episdes_item.author_username, trending_episdes_item.icon)
+          .trending-episdes-button
+            +button(false, "Load More")
+
+
+
+
+
+
